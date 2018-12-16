@@ -91,6 +91,7 @@ class AttentionWordRNN(nn.Module):
         
     def forward(self, embed, state_word):
         # embeddings
+        embed = embed.long()
         embedded = self.lookup(embed)
         # word level gru
         output_word, state_word = self.word_gru(embedded, state_word)
